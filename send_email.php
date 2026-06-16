@@ -75,18 +75,48 @@ $headers .= "Reply-To: $nama <$email>\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
-// Attempt to send email using PHP mail() function
-if (@mail($to, $subject, $email_body, $headers)) {
-    http_response_code(200);
-    echo json_encode([
-        "status" => "success",
-        "message" => "Pesan Anda berhasil terkirim ke molsipart@gmail.com. Terima kasih!"
-    ]);
+// Check if running on localhost (handles optional port numbers)
+$host = explode(':', $_SERVER['HTTP_HOST'])[0];
+$is_localhost = in_array($host, ['localhost', '127.0.0.1']) || (isset($_SERVER['SERVER_ADDR']) && $_SERVER['SERVER_ADDR'] === '127.0.0.1');
+
+if ($is_localhost) {
+    // Save to a local file for debugging on XAMPP
+    $log_file = __DIR__ . "/mail_logs.txt";
+    $log_content = "===============================================\n";
+    $log_content .= "EMAIL SIMULATION (LOCALHOST - " . date("Y-m-d H:i:s") . ")\n";
+    $log_content .= "To: $to\n";
+    $log_content .= "Subject: $subject\n";
+    $log_content .= "Headers:\n$headers\n";
+    $log_content .= "Body:\n$email_body\n";
+    $log_content .= "===============================================\n\n";
+    
+    if (file_put_contents($log_file, $log_content, FILE_APPEND)) {
+        http_response_code(200);
+        echo json_encode([
+            "status" => "success",
+            "message" => "Pesan disimulasikan terkirim di localhost (disimpan di mail_logs.txt). Di hosting asli, email akan terkirim ke molsipart@gmail.com."
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Gagal menulis log email lokal."
+        ]);
+    }
 } else {
-    http_response_code(500);
-    echo json_encode([
-        "status" => "error",
-        "message" => "Gagal mengirim email secara backend. Periksa konfigurasi mail server Anda."
-    ]);
+    // Attempt to send email using PHP mail() function on live hosting
+    if (@mail($to, $subject, $email_body, $headers)) {
+        http_response_code(200);
+        echo json_encode([
+            "status" => "success",
+            "message" => "Pesan Anda berhasil terkirim ke molsipart@gmail.com. Terima kasih!"
+        ]);
+    } else {
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Gagal mengirim email secara backend. Periksa konfigurasi mail server Anda."
+        ]);
+    }
 }
 ?>
