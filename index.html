@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CORE IT - Community of Research & Engineering in Information Technology. UKM Teknologi Informasi terdepan di Global Institute." />
+  <meta name="keywords" content="CORE IT, UKM IT, Global Institute, pemrograman, web development, coding, teknologi informasi" />
+  <meta name="author" content="CORE IT - Global Institute" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CORE IT - UKM Teknologi Informasi Global Institute" />
+  <meta property="og:description" content="Wadah bagi mahasiswa yang ingin mendalami pemrograman, pengembangan perangkat lunak, dan solusi IT terkini." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0066ff/white?text=CORE+IT" />
+
+  <title>CORE IT - Community of Research & Engineering in IT | Global Institute</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#e6f0ff',
+              100: '#cce0ff',
+              200: '#99c2ff',
+              300: '#66a3ff',
+              400: '#3385ff',
+              500: '#0066ff',
+              600: '#0052cc',
+              700: '#003d99',
+              800: '#002966',
+              900: '#001433',
+            },
+            accent: {
+              cyan: '#00d4ff',
+              purple: '#7c3aed',
+              green: '#10b981',
+              orange: '#f97316',
+            },
+            dark: {
+              bg: '#030712',
+              surface: '#0f172a',
+              border: '#1e293b',
+            }
+          },
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="font-body">
+
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-18">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-2 group" aria-label="CORE IT Home">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="4" fill="#0066ff"/>
+          <g class="orbit-ring">
+            <ellipse cx="18" cy="18" rx="14" ry="6" stroke="#0066ff" stroke-width="1.5" fill="none" opacity="0.7"/>
+            <circle cx="32" cy="18" r="2.5" fill="#00d4ff"/>
+          </g>
+          <g class="orbit-ring-r">
+            <ellipse cx="18" cy="18" rx="6" ry="14" stroke="#7c3aed" stroke-width="1.5" fill="none" opacity="0.7"/>
+            <circle cx="18" cy="4" r="2" fill="#7c3aed"/>
+          </g>
+        </svg>
+        <span class="font-heading font-800 text-xl" style="font-weight:800">
+          <span class="text-primary-500">CORE</span><span class="text-gray-800 dark:text-white"> IT</span>
+        </span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#home" class="nav-link text-sm">Home</a>
+        <a href="#about" class="nav-link text-sm">About</a>
+        <a href="#features" class="nav-link text-sm">Keunggulan</a>
+        <a href="#services" class="nav-link text-sm">Program</a>
+        <a href="#testimonials" class="nav-link text-sm">Testimoni</a>
+        <a href="#gallery" class="nav-link text-sm">Galeri</a>
+        <a href="#contact" class="nav-link text-sm">Kontak</a>
+      </div>
+
+      <!-- Right buttons -->
+      <div class="hidden lg:flex items-center gap-3">
+        <!-- Dark mode toggle -->
+        <button id="dark-toggle" aria-label="Toggle dark mode"
+          class="w-9 h-9 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-surface transition">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:block"></i>
+        </button>
+        <a href="#contact"
+          class="bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2 rounded-full transition shadow hover:shadow-lg">
+          Gabung Sekarang
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <div class="lg:hidden flex items-center gap-2">
+        <button id="dark-toggle-mobile" aria-label="Toggle dark mode"
+          class="w-9 h-9 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-300">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:block"></i>
+        </button>
+        <button id="menu-toggle" aria-label="Open menu"
+          class="w-9 h-9 flex items-center justify-center text-gray-700 dark:text-gray-300">
+          <i class="fas fa-bars text-lg" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-white dark:bg-dark-surface z-40 shadow-2xl pt-20 px-6">
+  <button id="menu-close" class="absolute top-4 right-4 text-gray-500 text-xl"><i class="fas fa-times"></i></button>
+  <nav class="flex flex-col gap-4">
+    <a href="#home" class="mobile-nav-link font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-500 py-2 border-b border-gray-100 dark:border-dark-border">Home</a>
+    <a href="#about" class="mobile-nav-link font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-500 py-2 border-b border-gray-100 dark:border-dark-border">About</a>
+    <a href="#features" class="mobile-nav-link font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-500 py-2 border-b border-gray-100 dark:border-dark-border">Keunggulan</a>
+    <a href="#services" class="mobile-nav-link font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-500 py-2 border-b border-gray-100 dark:border-dark-border">Program</a>
+    <a href="#testimonials" class="mobile-nav-link font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-500 py-2 border-b border-gray-100 dark:border-dark-border">Testimoni</a>
+    <a href="#gallery" class="mobile-nav-link font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-500 py-2 border-b border-gray-100 dark:border-dark-border">Galeri</a>
+    <a href="#contact" class="mobile-nav-link font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-500 py-2 border-b border-gray-100 dark:border-dark-border">Kontak</a>
+    <a href="#contact"
+      class="mt-4 bg-primary-500 hover:bg-primary-600 text-white text-center font-semibold px-5 py-2.5 rounded-full transition">
+      Gabung Sekarang
+    </a>
+  </nav>
+  <div class="mt-6 text-xs text-gray-400">© 2026 CORE IT - Global Institute</div>
+</div>
+<div id="menu-overlay" class="fixed inset-0 bg-black/50 z-30 hidden"></div>
+
+
+<!-- ══════════════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════════════ -->
+<section id="home" class="hero-bg min-h-screen flex items-center relative">
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 relative z-10 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Text -->
+      <div>
+        <div class="section-tag bg-white/10 text-cyan-300 border border-white/20 mb-6" data-aos>
+          <i class="fas fa-code text-xs"></i> UKM Teknologi Terdepan
+        </div>
+        <h1 class="font-heading font-extrabold text-white leading-tight mb-6" style="font-size:clamp(2rem,5vw,3.5rem)" data-aos data-aos-delay="100">
+          Membangun Generasi<br/>
+          <span class="text-cyan-400">Developer Masa Depan</span>
+        </h1>
+        <p class="text-blue-100 text-base sm:text-lg leading-relaxed mb-8 max-w-lg" data-aos data-aos-delay="200">
+          CORE IT — <em>Community of Research &amp; Engineering in Information Technology.</em>
+          Wadah bagi mahasiswa Global Institute yang ingin mendalami pemrograman, pengembangan perangkat lunak, dan solusi IT terkini.
+        </p>
+        <div class="flex flex-wrap gap-4" data-aos data-aos-delay="300">
+          <a href="#contact"
+            class="bg-white text-primary-600 font-bold px-7 py-3 rounded-full hover:shadow-xl hover:scale-105 transition-all duration-200">
+            <i class="fas fa-rocket mr-2"></i>Gabung Sekarang
+          </a>
+          <a href="#about"
+            class="border-2 border-white/40 text-white font-semibold px-7 py-3 rounded-full hover:bg-white/10 transition-all duration-200">
+            Pelajari Lebih <i class="fas fa-arrow-down ml-2"></i>
+          </a>
+        </div>
+        <!-- Quick stats -->
+        <div class="mt-12 flex gap-8" data-aos data-aos-delay="400">
+          <div><div class="text-2xl font-bold text-white">50+</div><div class="text-xs text-blue-300 uppercase tracking-wide">Anggota</div></div>
+          <div class="w-px bg-white/20"></div>
+          <div><div class="text-2xl font-bold text-white">20+</div><div class="text-xs text-blue-300 uppercase tracking-wide">Proyek</div></div>
+          <div class="w-px bg-white/20"></div>
+          <div><div class="text-2xl font-bold text-white">15+</div><div class="text-xs text-blue-300 uppercase tracking-wide">Workshop</div></div>
+        </div>
+      </div>
+
+      <!-- SVG Illustration -->
+    <div class="hidden lg:flex justify-center items-center" data-aos data-aos-delay="200">
+        <div class="float-anim">
+          <svg viewBox="0 0 520 400" width="520" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Developer workspace">
+            <rect x="40" y="20" width="440" height="320" rx="16" fill="#1c1917" stroke="#44403c" stroke-width="1.5"/>
+            <rect x="40" y="20" width="440" height="36" rx="16" fill="#292524"/>
+            <rect x="40" y="40" width="440" height="16" fill="#292524"/>
+            <circle cx="66" cy="38" r="5" fill="#ef4444"/>
+            <circle cx="82" cy="38" r="5" fill="#f59e0b"/>
+            <circle cx="98" cy="38" r="5" fill="#22c55e"/>
+            <rect x="120" y="24" width="100" height="28" rx="6" fill="#1c1917"/>
+            <text x="135" y="42" fill="#a8a29e" font-size="10" font-family="Inter">main.js</text>
+            <text x="205" y="42" fill="#78716c" font-size="10" font-family="Inter">&times;</text>
+            <text x="60" y="80" fill="#78716c" font-size="11" font-family="monospace">1</text>
+            <text x="85" y="80" fill="#c084fc" font-size="11" font-family="monospace">import</text>
+            <text x="135" y="80" fill="#e7e5e4" font-size="11" font-family="monospace">{ CoreIT }</text>
+            <text x="200" y="80" fill="#c084fc" font-size="11" font-family="monospace">from</text>
+            <text x="235" y="80" fill="#86efac" font-size="11" font-family="monospace">'./community'</text>
+            <text x="60" y="102" fill="#78716c" font-size="11" font-family="monospace">2</text>
+            <text x="60" y="124" fill="#78716c" font-size="11" font-family="monospace">3</text>
+            <text x="85" y="124" fill="#818cf8" font-size="11" font-family="monospace">const</text>
+            <text x="125" y="124" fill="#60a5fa" font-size="11" font-family="monospace">member</text>
+            <text x="175" y="124" fill="#e7e5e4" font-size="11" font-family="monospace">=</text>
+            <text x="190" y="124" fill="#fbbf24" font-size="11" font-family="monospace">new</text>
+            <text x="220" y="124" fill="#60a5fa" font-size="11" font-family="monospace">CoreIT</text>
+            <text x="265" y="124" fill="#e7e5e4" font-size="11" font-family="monospace">();</text>
+            <text x="60" y="146" fill="#78716c" font-size="11" font-family="monospace">4</text>
+            <text x="60" y="168" fill="#78716c" font-size="11" font-family="monospace">5</text>
+            <text x="85" y="168" fill="#60a5fa" font-size="11" font-family="monospace">member</text>
+            <text x="130" y="168" fill="#e7e5e4" font-size="11" font-family="monospace">.</text>
+            <text x="138" y="168" fill="#fbbf24" font-size="11" font-family="monospace">learn</text>
+            <text x="175" y="168" fill="#e7e5e4" font-size="11" font-family="monospace">([</text>
+            <text x="190" y="168" fill="#86efac" font-size="11" font-family="monospace">'Web'</text>
+            <text x="225" y="168" fill="#e7e5e4" font-size="11" font-family="monospace">,</text>
+            <text x="235" y="168" fill="#86efac" font-size="11" font-family="monospace">'AI'</text>
+            <text x="260" y="168" fill="#e7e5e4" font-size="11" font-family="monospace">,</text>
+            <text x="270" y="168" fill="#86efac" font-size="11" font-family="monospace">'Mobile'</text>
+            <text x="320" y="168" fill="#e7e5e4" font-size="11" font-family="monospace">]);</text>
+            <text x="60" y="190" fill="#78716c" font-size="11" font-family="monospace">6</text>
+            <text x="60" y="212" fill="#78716c" font-size="11" font-family="monospace">7</text>
+            <text x="85" y="212" fill="#f43f5e" font-size="11" font-family="monospace">await</text>
+            <text x="130" y="212" fill="#60a5fa" font-size="11" font-family="monospace">member</text>
+            <text x="175" y="212" fill="#e7e5e4" font-size="11" font-family="monospace">.</text>
+            <text x="183" y="212" fill="#fbbf24" font-size="11" font-family="monospace">buildFuture</text>
+            <text x="260" y="212" fill="#e7e5e4" font-size="11" font-family="monospace">();</text>
+            <rect x="270" y="220" width="8" height="14" rx="1" fill="#6366f1" opacity="0.9">
+              <animate attributeName="opacity" values="0.9;0.2;0.9" dur="1s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="60" y="250" width="400" height="70" rx="10" fill="#0c0a09" stroke="#44403c" stroke-width="1"/>
+            <text x="75" y="272" fill="#22c55e" font-size="10" font-family="monospace">$</text>
+            <text x="90" y="272" fill="#e7e5e4" font-size="10" font-family="monospace">coreit start --dev</text>
+            <text x="75" y="290" fill="#78716c" font-size="9" font-family="monospace">[INFO] Server running on localhost:3000</text>
+            <text x="75" y="305" fill="#78716c" font-size="9" font-family="monospace">[INFO] Ready to build amazing things!</text>
+            <g transform="translate(0,40)">
+              <rect width="56" height="28" rx="8" fill="#4f46e5"/>
+              <text x="28" y="18" text-anchor="middle" fill="white" font-size="11" font-family="Outfit" font-weight="700">React</text>
+            </g>
+            <g transform="translate(460,60)">
+              <rect width="52" height="28" rx="8" fill="#15803d"/>
+              <text x="26" y="18" text-anchor="middle" fill="white" font-size="11" font-family="Outfit" font-weight="700">Node</text>
+            </g>
+            <g transform="translate(450,280)">
+              <rect width="64" height="28" rx="8" fill="#c2410c"/>
+              <text x="32" y="18" text-anchor="middle" fill="white" font-size="11" font-family="Outfit" font-weight="700">Python</text>
+            </g>
+            <g transform="translate(10,260)">
+              <rect width="48" height="28" rx="8" fill="#be185d"/>
+              <text x="24" y="18" text-anchor="middle" fill="white" font-size="11" font-family="Outfit" font-weight="700">Git</text>
+            </g>
+          </svg>
+        </div>
+      </div>  
+    
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 text-xs flex flex-col items-center gap-2 z-10">
+    <span>Scroll</span>
+    <div class="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center pt-1.5">
+      <div class="w-1 h-2 bg-white/60 rounded-full" style="animation:float 1.5s ease-in-out infinite"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT SECTION-->
+<section id="about" class="py-20 bg-white dark:bg-dark-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Illustration / visual -->
+      <div class="relative" data-aos>
+        <div class="relative w-full h-[400px] bg-[#0d1117] rounded-2xl shadow-2xl border border-gray-200/10 dark:border-primary-500/20 overflow-hidden flex flex-col font-mono text-xs text-slate-300 transition-all duration-300" id="editor-window">
+          <!-- Window Header -->
+          <div class="h-9 bg-[#161b22] px-4 flex items-center justify-between border-b border-[#21262d] select-none">
+            <div class="flex gap-1.5 items-center">
+              <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+            </div>
+            <div class="text-[11px] text-gray-500 font-sans flex items-center gap-1.5 select-none">
+              <i class="fab fa-js text-yellow-500 text-xs"></i> <span id="window-title-file">coreit.js</span> — Visual Studio Code
+            </div>
+            <div class="w-10"></div>
+          </div>
+
+          <!-- Tab Bar -->
+          <div class="h-9 bg-[#161b22] flex border-b border-[#21262d] select-none overflow-x-auto" id="editor-tabs">
+            <button class="editor-tab active px-4 flex items-center gap-2 border-r border-[#21262d] text-[11px] text-gray-300 bg-[#0d1117] border-t-2 border-t-indigo-500 font-sans transition-all duration-200" data-file="coreit.js">
+              <i class="fab fa-js text-yellow-500 text-xs"></i> coreit.js
+            </button>
+            <button class="editor-tab px-4 flex items-center gap-2 border-r border-[#21262d] text-[11px] text-gray-500 hover:text-gray-300 font-sans transition-all duration-200" data-file="style.css">
+              <i class="fab fa-css3-alt text-blue-400 text-xs"></i> style.css
+            </button>
+            <button class="editor-tab px-4 flex items-center gap-2 border-r border-[#21262d] text-[11px] text-gray-500 hover:text-gray-300 font-sans transition-all duration-200" data-file="about.html">
+              <i class="fab fa-html5 text-orange-500 text-xs"></i> about.html
+            </button>
+            <div class="flex-1"></div>
+            <button id="run-code-btn" class="px-4 hover:bg-[#21262d] active:bg-[#30363d] text-emerald-400 flex items-center gap-1.5 transition text-[11px] font-sans font-semibold border-l border-[#21262d]" title="Run Code">
+              <i class="fas fa-play text-[9px]"></i> Run
+            </button>
+          </div>
+
+          <!-- Main Window Body -->
+          <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar Mockup -->
+            <div class="w-12 bg-[#161b22] border-r border-[#21262d] py-4 flex flex-col items-center gap-5 text-gray-600 select-none">
+              <i class="fas fa-file text-primary-500" id="sidebar-file-icon"></i>
+              <i class="fas fa-search hover:text-gray-400 transition"></i>
+              <i class="fas fa-code-branch hover:text-gray-400 transition"></i>
+              <i class="fas fa-cube hover:text-gray-400 transition"></i>
+              <i class="fas fa-cog hover:text-gray-400 transition mt-auto"></i>
+            </div>
+
+            <!-- Code Editor Workspace -->
+            <div class="flex-1 bg-[#0d1117] p-4 flex flex-col justify-between overflow-hidden relative">
+              <!-- Editor Code Lines -->
+              <div class="space-y-1.5 text-xs text-gray-400 overflow-y-auto max-h-[160px]" id="code-editor-area">
+                <!-- Lines will be dynamically generated by JS -->
+                <div class="flex gap-4">
+                  <span class="text-gray-600 select-none w-3 text-right">1</span>
+                  <span><span class="text-indigo-400">const</span> <span class="text-blue-400">coreIT</span> <span class="text-gray-500">=</span> <span class="text-indigo-400">new</span> <span class="text-emerald-400">CORE_IT</span><span class="text-gray-500">();</span></span>
+                </div>
+              </div>
+
+              <!-- Integrated Mock Terminal -->
+              <div class="bg-[#161b22] rounded-xl p-3 border border-[#21262d] font-mono text-[11px] text-slate-400">
+                <div class="flex items-center justify-between border-b border-[#21262d] pb-1.5 mb-1.5 text-gray-500 select-none">
+                  <span>TERMINAL</span>
+                  <span class="flex gap-2"><i class="fas fa-plus"></i><i class="fas fa-trash-can"></i></span>
+                </div>
+                <div class="space-y-1" id="terminal-content">
+                  <div class="flex gap-1.5">
+                    <span class="text-green-500">➜</span>
+                    <span class="text-blue-400">~/core-it</span>
+                    <span class="text-gray-300">git status</span>
+                  </div>
+                  <div class="text-gray-500">On branch main</div>
+                  <div class="text-emerald-400 flex items-center gap-1.5">
+                    <span>Your future is ready to be compiled...</span>
+                    <span class="w-1.5 h-3 bg-emerald-400 animate-pulse"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Tech Badges / Cards Overlaid -->
+              <div class="absolute right-4 top-4 flex flex-col gap-2 z-10">
+                <button id="badge-web" class="bg-[#161b22]/90 border border-primary-500/30 hover:border-primary-500/80 hover:bg-[#21262d] px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-lg float-anim text-[10px] text-left transition" style="animation-delay: 0.5s;">
+                  <div class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></div>
+                  <span class="text-gray-300 font-sans font-semibold">Web Development</span>
+                </button>
+                <button id="badge-cyber" class="bg-[#161b22]/90 border border-purple-500/30 hover:border-purple-500/80 hover:bg-[#21262d] px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-lg float-anim text-[10px] text-left transition" style="animation-delay: 1.5s;">
+                  <i class="fas fa-shield-halved text-purple-400 text-xs"></i>
+                  <span class="text-gray-300 font-sans font-semibold">Cybersecurity</span>
+                </button>
+                <button id="badge-uiux" class="bg-[#161b22]/90 border border-pink-500/30 hover:border-pink-500/80 hover:bg-[#21262d] px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-lg float-anim text-[10px] text-left transition" style="animation-delay: 2.5s;">
+                  <i class="fas fa-pen-ruler text-pink-400 text-xs"></i>
+                  <span class="text-gray-300 font-sans font-semibold">UI/UX Design</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Badge overlay -->
+        <div class="absolute -bottom-4 -right-4 bg-primary-500 text-white px-5 py-3 rounded-2xl shadow-xl text-sm font-semibold select-none z-20">
+          <i class="fas fa-users mr-2"></i>Komunitas Aktif
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div data-aos data-aos-delay="100">
+        <div class="section-tag"><i class="fas fa-info-circle text-xs"></i> Tentang Kami</div>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mb-4">
+          Mengenal Lebih Dekat <span class="gradient-text">CORE IT</span>
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+          UKM CORE IT adalah komunitas mahasiswa peminat teknologi informasi di Global Institute yang berfokus pada
+          pemrograman, pengembangan perangkat lunak, dan solusi IT terkini. Kami hadir untuk menjadi ruang eksplorasi,
+          kolaborasi, dan pertumbuhan bagi seluruh mahasiswa yang memiliki semangat di bidang teknologi.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-8">
+          <!-- Visi -->
+          <div class="bg-primary-50 dark:bg-dark-bg border border-primary-100 dark:border-dark-border rounded-xl p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-7 h-7 bg-primary-500 rounded-full flex items-center justify-center">
+                <i class="fas fa-eye text-white text-xs"></i>
+              </div>
+              <span class="font-semibold text-gray-800 dark:text-white text-sm">Visi</span>
+            </div>
+            <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">Jadikan CORE IT pusat inovasi teknologi global, ciptakan solusi revolusioner, dan wujudkan masa depan digital yang inklusif.</p>
+          </div>
+          <!-- Misi -->
+          <div class="bg-purple-50 dark:bg-dark-bg border border-purple-100 dark:border-dark-border rounded-xl p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-7 h-7 bg-accent-purple rounded-full flex items-center justify-center">
+                <i class="fas fa-bullseye text-white text-xs"></i>
+              </div>
+              <span class="font-semibold text-gray-800 dark:text-white text-sm">Misi</span>
+            </div>
+            <ul class="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+              <li class="flex items-start gap-1.5"><i class="fas text-accent-green mt-0.5 text-xs"></i>Mendorong inovasi, menyiapkan talenta digital unggul, dan membangun kerja sama dengan industri dan akademisi, serta menghadirkan solusi teknologi, berlandaskan integritas, kolaborasi dan semangat berbagi ilmu.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Counters -->
+        <div class="grid grid-cols-4 gap-3">
+          <div class="text-center">
+            <div class="font-heading font-extrabold text-2xl text-primary-500 counter-num" data-target="50">0</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Anggota<br/>Aktif</div>
+          </div>
+          <div class="text-center">
+            <div class="font-heading font-extrabold text-2xl text-accent-purple counter-num" data-target="20">0</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Proyek<br/>Selesai</div>
+          </div>
+          <div class="text-center">
+            <div class="font-heading font-extrabold text-2xl text-accent-green counter-num" data-target="15">0</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Workshop<br/>Diadakan</div>
+          </div>
+          <div class="text-center">
+            <div class="font-heading font-extrabold text-2xl text-accent-orange counter-num" data-target="10">0</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Kompetisi<br/>Diikuti</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     FEATURES SECTION
+══════════════════════════════════════════════ -->
+<section id="features" class="py-20 bg-gray-50 dark:bg-dark-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos>
+      <div class="section-tag mx-auto w-fit"><i class="fas fa-star text-xs"></i> Keunggulan</div>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
+        Mengapa Memilih <span class="gradient-text">CORE IT?</span>
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-3 max-w-xl mx-auto">Kami menawarkan pengalaman belajar yang komprehensif, kolaboratif, dan menyenangkan.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card template repeated 6x -->
+      <div class="feature-card bg-white dark:bg-dark-surface rounded-2xl p-6 border border-gray-100 dark:border-dark-border" data-aos>
+        <div class="w-12 h-12 bg-blue-100 dark:bg-primary-900 rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-bolt text-primary-500 text-xl"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-2">Cepat</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Pembelajaran berbasis proyek real-time dengan metode hands-on yang langsung bisa diterapkan.</p>
+      </div>
+
+      <div class="feature-card bg-white dark:bg-dark-surface rounded-2xl p-6 border border-gray-100 dark:border-dark-border" data-aos data-aos-delay="100">
+        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-shield-halved text-accent-green text-xl"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-2">Aman</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Lingkungan belajar yang supportive dan inklusif untuk semua level kemampuan, tanpa tekanan.</p>
+      </div>
+
+      <div class="feature-card bg-white dark:bg-dark-surface rounded-2xl p-6 border border-gray-100 dark:border-dark-border" data-aos data-aos-delay="200">
+        <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-rocket text-accent-orange text-xl"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-2">Mudah</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Akses materi pembelajaran dan bimbingan mentor yang mudah dijangkau kapan saja dan di mana saja.</p>
+      </div>
+
+      <div class="feature-card bg-white dark:bg-dark-surface rounded-2xl p-6 border border-gray-100 dark:border-dark-border" data-aos data-aos-delay="100">
+        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-users text-accent-purple text-xl"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-2">Kolaboratif</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Kerja sama tim dalam setiap proyek dan kegiatan, membangun soft-skill yang dibutuhkan industri.</p>
+      </div>
+
+      <div class="feature-card bg-white dark:bg-dark-surface rounded-2xl p-6 border border-gray-100 dark:border-dark-border" data-aos data-aos-delay="200">
+        <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-trophy text-yellow-500 text-xl"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-2">Berprestasi</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Track record juara kompetisi teknologi nasional yang membuktikan kualitas anggota CORE IT.</p>
+      </div>
+
+      <div class="feature-card bg-white dark:bg-dark-surface rounded-2xl p-6 border border-gray-100 dark:border-dark-border" data-aos data-aos-delay="300">
+        <div class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-network-wired text-cyan-500 text-xl"></i>
+        </div>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-2">Terhubung</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Jaringan alumni yang tersebar di berbagai perusahaan teknologi terkemuka di Indonesia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     SERVICES / PROGRAM SECTION
+══════════════════════════════════════════════ -->
+<section id="services" class="py-20 bg-white dark:bg-dark-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos>
+      <div class="section-tag mx-auto w-fit"><i class="fas fa-laptop-code text-xs"></i> Program & Layanan</div>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
+        Pilih <span class="gradient-text">Bidang Minatmu</span>
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-3 max-w-xl mx-auto">Kami menyediakan berbagai program pelatihan yang dirancang untuk mempersiapkan kamu menjadi profesional IT.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Program cards -->
+      <div class="service-card rounded-2xl overflow-hidden border border-gray-100 dark:border-dark-border group cursor-pointer" data-program="web" data-aos>
+        <div class="h-40 bg-primary-500 flex items-center justify-center relative overflow-hidden">
+          <i class="fas fa-globe text-white text-5xl opacity-30 absolute right-4 bottom-2 group-hover:scale-110 transition-transform duration-300"></i>
+          <i class="fas fa-code text-white text-4xl relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark-surface">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-primary-600 dark:text-primary-400 px-2 py-0.5 rounded-full">HTML</span>
+            <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-primary-600 dark:text-primary-400 px-2 py-0.5 rounded-full">CSS</span>
+            <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-primary-600 dark:text-primary-400 px-2 py-0.5 rounded-full">React</span>
+            <span class="text-xs bg-blue-100 dark:bg-blue-900/30 text-primary-600 dark:text-primary-400 px-2 py-0.5 rounded-full">Node.js</span>
+          </div>
+          <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-1">Web Development</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">Pelatihan pembuatan website modern dari dasar hingga advanced, mencakup frontend & backend.</p>
+          <span class="text-primary-500 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">Detail <i class="fas fa-arrow-right text-xs"></i></span>
+        </div>
+      </div>
+
+      <div class="service-card rounded-2xl overflow-hidden border border-gray-100 dark:border-dark-border group cursor-pointer" data-program="mobile" data-aos data-aos-delay="100">
+        <div class="h-40 bg-accent-purple flex items-center justify-center relative overflow-hidden">
+          <i class="fas fa-mobile-alt text-white text-5xl opacity-30 absolute right-4 bottom-2 group-hover:scale-110 transition-transform duration-300"></i>
+          <i class="fas fa-mobile-screen-button text-white text-4xl relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark-surface">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-2 py-0.5 rounded-full">React Native</span>
+            <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-2 py-0.5 rounded-full">Flutter</span>
+            <span class="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-2 py-0.5 rounded-full">Kotlin</span>
+          </div>
+          <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-1">Mobile App Development</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">Pengembangan aplikasi mobile cross-platform yang siap bersaing di Google Play & App Store.</p>
+          <span class="text-accent-purple text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">Detail <i class="fas fa-arrow-right text-xs"></i></span>
+        </div>
+      </div>
+
+      <div class="service-card rounded-2xl overflow-hidden border border-gray-100 dark:border-dark-border group cursor-pointer" data-program="data" data-aos data-aos-delay="200">
+        <div class="h-40 bg-accent-green flex items-center justify-center relative overflow-hidden">
+          <i class="fas fa-chart-bar text-white text-5xl opacity-30 absolute right-4 bottom-2 group-hover:scale-110 transition-transform duration-300"></i>
+          <i class="fas fa-brain text-white text-4xl relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark-surface">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-0.5 rounded-full">Python</span>
+            <span class="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-0.5 rounded-full">TensorFlow</span>
+            <span class="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-0.5 rounded-full">Pandas</span>
+          </div>
+          <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-1">Data Science & AI</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">Workshop analisis data dan machine learning untuk mempersiapkan era AI.</p>
+          <span class="text-accent-green text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">Detail <i class="fas fa-arrow-right text-xs"></i></span>
+        </div>
+      </div>
+
+      <div class="service-card rounded-2xl overflow-hidden border border-gray-100 dark:border-dark-border group cursor-pointer" data-program="cyber" data-aos>
+        <div class="h-40 bg-red-500 flex items-center justify-center relative overflow-hidden">
+          <i class="fas fa-lock text-white text-5xl opacity-30 absolute right-4 bottom-2 group-hover:scale-110 transition-transform duration-300"></i>
+          <i class="fas fa-shield-halved text-white text-4xl relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark-surface">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="text-xs bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-2 py-0.5 rounded-full">Kali Linux</span>
+            <span class="text-xs bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-2 py-0.5 rounded-full">OWASP</span>
+            <span class="text-xs bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-2 py-0.5 rounded-full">Network</span>
+          </div>
+          <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-1">Cybersecurity</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">Workshop keamanan siber dan ethical hacking untuk memahami ancaman digital modern.</p>
+          <span class="text-red-500 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">Detail <i class="fas fa-arrow-right text-xs"></i></span>
+        </div>
+      </div>
+
+      <div class="service-card rounded-2xl overflow-hidden border border-gray-100 dark:border-dark-border group cursor-pointer" data-program="uiux" data-aos data-aos-delay="100">
+        <div class="h-40 bg-pink-500 flex items-center justify-center relative overflow-hidden">
+          <i class="fas fa-palette text-white text-5xl opacity-30 absolute right-4 bottom-2 group-hover:scale-110 transition-transform duration-300"></i>
+          <i class="fas fa-pen-ruler text-white text-4xl relative z-10 group-hover:scale-110 transition-transform duration-300"></i>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark-surface">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="text-xs bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 px-2 py-0.5 rounded-full">Figma</span>
+            <span class="text-xs bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 px-2 py-0.5 rounded-full">Adobe XD</span>
+            <span class="text-xs bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 px-2 py-0.5 rounded-full">Prototyping</span>
+          </div>
+          <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-1">UI/UX Design</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">Pelatihan desain antarmuka dan pengalaman pengguna yang berpusat pada human-centered design.</p>
+          <span class="text-pink-500 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">Detail <i class="fas fa-arrow-right text-xs"></i></span>
+        </div>
+      </div>
+
+      <!-- CTA card -->
+      <div class="rounded-2xl bg-primary-600 p-6 flex flex-col justify-between" data-aos data-aos-delay="200">
+        <div>
+          <h3 class="font-heading font-bold text-white text-xl mb-2">Tertarik Bergabung?</h3>
+          <p class="text-blue-100 text-sm leading-relaxed mb-6">Daftarkan dirimu sekarang dan mulai perjalanan menjadi developer profesional bersama CORE IT.</p>
+        </div>
+        <a href="#contact"
+          class="bg-white text-primary-600 font-bold text-sm px-5 py-2.5 rounded-full text-center hover:shadow-lg hover:scale-105 transition-all">
+          <i class="fas fa-paper-plane mr-2"></i>Daftar Sekarang
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     TESTIMONIALS SECTION
+══════════════════════════════════════════════ -->
+<section id="testimonials" class="py-20 bg-gray-50 dark:bg-dark-bg overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos>
+      <div class="section-tag mx-auto w-fit"><i class="fas fa-quote-left text-xs"></i> Testimoni</div>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
+        Apa Kata <span class="gradient-text">Mereka?</span>
+      </h2>
+    </div>
+
+    <!-- Carousel -->
+    <div class="relative max-w-4xl mx-auto">
+      <div class="overflow-hidden rounded-2xl">
+        <div id="testimonial-track" class="testimonial-track">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide min-w-full px-2">
+            <div class="bg-white dark:bg-dark-surface rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-dark-border relative">
+              <i class="fas fa-quote-left text-primary-200 dark:text-primary-900 text-5xl absolute top-6 left-6 opacity-50"></i>
+              <div class="relative z-10">
+                <div class="mb-6">
+                  <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed italic">
+                    "CORE IT mengubah cara pandang saya tentang pemrograman. Dari yang awalnya bingung, kini saya bisa membangun website sendiri dengan percaya diri!"
+                  </p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-14 h-14 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-xl">B</div>
+                  <div>
+                    <div class="font-semibold text-gray-900 dark:text-white">Budi Santoso</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">Anggota Aktif 2023</div>
+                    <div class="flex gap-1 mt-1" id="stars-0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide min-w-full px-2">
+            <div class="bg-white dark:bg-dark-surface rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-dark-border relative">
+              <i class="fas fa-quote-left text-purple-200 dark:text-purple-900 text-5xl absolute top-6 left-6 opacity-50"></i>
+              <div class="relative z-10">
+                <div class="mb-6">
+                  <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed italic">
+                    "Komunitas yang sangat supportive. Mentor-mentor di CORE IT selalu siap membantu kapanpun kita butuh. Tidak ada yang merasa ditinggal sendiri."
+                  </p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-14 h-14 rounded-full bg-accent-purple flex items-center justify-center text-white font-bold text-xl">A</div>
+                  <div>
+                    <div class="font-semibold text-gray-900 dark:text-white">Ani Wulandari</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">Ketua Divisi Web Dev</div>
+                    <div class="flex gap-1 mt-1" id="stars-1"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide min-w-full px-2">
+            <div class="bg-white dark:bg-dark-surface rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-dark-border relative">
+              <i class="fas fa-quote-left text-green-200 dark:text-green-900 text-5xl absolute top-6 left-6 opacity-50"></i>
+              <div class="relative z-10">
+                <div class="mb-6">
+                  <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed italic">
+                    "Berkat CORE IT, saya berhasil menjuarai kompetisi coding nasional. Pengalaman tak terlupakan yang mengubah karier saya sepenuhnya!"
+                  </p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-14 h-14 rounded-full bg-accent-green flex items-center justify-center text-white font-bold text-xl">D</div>
+                  <div>
+                    <div class="font-semibold text-gray-900 dark:text-white">Dedi Kurniawan</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">Alumni 2022</div>
+                    <div class="flex gap-1 mt-1" id="stars-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <button id="prev-btn" aria-label="Testimoni sebelumnya"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white dark:bg-dark-surface rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary-500 hover:text-white transition">
+        <i class="fas fa-chevron-left text-sm"></i>
+      </button>
+      <button id="next-btn" aria-label="Testimoni berikutnya"
+        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white dark:bg-dark-surface rounded-full shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary-500 hover:text-white transition">
+        <i class="fas fa-chevron-right text-sm"></i>
+      </button>
+
+      <!-- Dots -->
+      <div class="flex justify-center gap-2 mt-6" id="testi-dots"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     GALLERY SECTION
+══════════════════════════════════════════════ -->
+<section id="gallery" class="py-20 bg-white dark:bg-dark-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10" data-aos>
+      <div class="section-tag mx-auto w-fit"><i class="fas fa-images text-xs"></i> Galeri</div>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
+        Kegiatan <span class="gradient-text">CORE IT</span>
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-3">Dokumentasi kegiatan dan pencapaian komunitas kami.</p>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-8" id="gallery-filters">
+      <button class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold transition" data-filter="all">Semua</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-semibold transition" data-filter="workshop">Workshop</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-semibold transition" data-filter="kompetisi">Kompetisi</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-semibold transition" data-filter="kegiatan">Kegiatan</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-semibold transition" data-filter="proyek">Proyek</button>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4" id="gallery-grid">
+      <!-- Item 1: Workshop HTML & CSS -->
+      <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group aspect-square bg-gray-100" data-category="workshop" data-idx="0">
+        <img src="images/image8.webp" alt="Workshop HTML & CSS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x300/e2e8f0/94a3b8?text=Gambar'" />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+          <p class="text-white font-semibold text-sm">Workshop HTML & CSS</p>
+          <p class="text-gray-300 text-xs">Pelatihan dasar pemrograman web untuk anggota baru</p>
+        </div>
+      </div>
+      <!-- Item 2: Workshop JavaScript -->
+      <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group aspect-square bg-gray-100" data-category="workshop" data-idx="1">
+        <img src="images/image4.jpg" alt="Workshop JavaScript" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x300/e2e8f0/94a3b8?text=Gambar'" />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+          <p class="text-white font-semibold text-sm">Workshop JavaScript</p>
+          <p class="text-gray-300 text-xs">Deep dive JavaScript modern (ES6+)</p>
+        </div>
+      </div>
+      <!-- Item 3: Kompetisi Coding -->
+      <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group aspect-square bg-gray-100" data-category="kompetisi" data-idx="2">
+        <img src="images/image5.jpg" alt="Kompetisi Coding" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x300/e2e8f0/94a3b8?text=Gambar'" />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+          <p class="text-white font-semibold text-sm">Kompetisi Coding</p>
+          <p class="text-gray-300 text-xs">Perlombaan coding antar anggota CORE IT</p>
+        </div>
+      </div>
+      <!-- Item 4: Team Building -->
+      <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group aspect-square bg-gray-100" data-category="kegiatan" data-idx="3">
+        <img src="images/image6.webp" alt="Team Building" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x300/e2e8f0/94a3b8?text=Gambar'" />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+          <p class="text-white font-semibold text-sm">Team Building</p>
+          <p class="text-gray-300 text-xs">Kegiatan mempererat hubungan antar anggota</p>
+        </div>
+      </div>
+      <!-- Item 5: Proyek Website Kampus -->
+      <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group aspect-square bg-gray-100" data-category="proyek" data-idx="4">
+        <img src="images/image1.jpeg" alt="Proyek Website Kampus" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x300/e2e8f0/94a3b8?text=Gambar'" />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+          <p class="text-white font-semibold text-sm">Proyek Website Kampus</p>
+          <p class="text-gray-300 text-xs">Pengembangan website sistem informasi kampus</p>
+        </div>
+      </div>
+      <!-- Item 6: Workshop React.js -->
+      <div class="gallery-item relative rounded-xl overflow-hidden cursor-pointer group aspect-square bg-gray-100" data-category="workshop" data-idx="5">
+        <img src="images/image7.jpeg" alt="Workshop React.js" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://placehold.co/400x300/e2e8f0/94a3b8?text=Gambar'" />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+          <p class="text-white font-semibold text-sm">Workshop React.js</p>
+          <p class="text-gray-300 text-xs">Pelatihan framework React untuk frontend</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Lihat gambar lebih besar">
+  <button id="lightbox-close" class="absolute top-4 right-4 text-white text-2xl z-10"><i class="fas fa-times"></i></button>
+  <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-2xl"><i class="fas fa-chevron-left"></i></button>
+  <button id="lightbox-next" class="absolute right-16 top-1/2 -translate-y-1/2 text-white text-2xl"><i class="fas fa-chevron-right"></i></button>
+  <div class="text-center">
+    <img id="lightbox-img" src="" alt="" class="mb-3"/>
+    <p id="lightbox-caption" class="text-white text-sm font-medium"></p>
+  </div>
+</div>
+
+<!-- Program Detail Modal -->
+<div id="program-modal" role="dialog" aria-modal="true" aria-label="Detail Program" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+  <!-- Backdrop -->
+  <div id="program-modal-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity duration-300"></div>
+  
+  <!-- Modal Content Container -->
+  <div class="modal-content relative bg-white dark:bg-dark-surface w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl border border-gray-100 dark:border-dark-border z-10 flex flex-col max-h-[90vh]">
+    
+    <!-- Header with Dynamic Background Color -->
+    <div id="modal-header" class="px-6 py-5 text-white flex items-center justify-between relative transition-colors duration-300">
+      <div class="flex items-center gap-3">
+        <div id="modal-icon-container" class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl text-white">
+          <i id="modal-icon" class="fas fa-code"></i>
+        </div>
+        <div>
+          <h3 id="modal-title" class="font-heading font-bold text-xl leading-tight text-white"></h3>
+          <span class="text-xs text-white/80 font-medium">Program Pelatihan CORE IT</span>
+        </div>
+      </div>
+      <button id="modal-close" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Scrollable Body Content -->
+    <div class="p-6 overflow-y-auto space-y-6 text-sm text-gray-600 dark:text-gray-300">
+      
+      <!-- Deskripsi -->
+      <div>
+        <h4 class="font-heading font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+          <i class="fas fa-circle-info text-primary-500"></i> Tentang Program
+        </h4>
+        <p id="modal-desc" class="leading-relaxed"></p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Kurikulum / Silabus -->
+        <div>
+          <h4 class="font-heading font-semibold text-gray-900 dark:text-white mb-2.5 flex items-center gap-2">
+            <i class="fas fa-book-open text-primary-500"></i> Silabus Materi
+          </h4>
+          <ul id="modal-syllabus" class="space-y-2">
+            <!-- Dynamic list -->
+          </ul>
+        </div>
+
+        <!-- Info Kelas (Durasi, Jadwal, Tools) -->
+        <div class="space-y-4">
+          <!-- Durasi & Jadwal -->
+          <div>
+            <h4 class="font-heading font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+              <i class="fas fa-calendar-days text-primary-500"></i> Informasi Kelas
+            </h4>
+            <div class="bg-gray-50 dark:bg-dark-bg/60 p-3.5 rounded-xl border border-gray-100 dark:border-dark-border space-y-2.5">
+              <div class="flex items-center gap-2.5 text-xs">
+                <i class="fas fa-hourglass-half text-gray-400 w-4 text-center"></i>
+                <div>
+                  <span class="text-gray-400">Durasi:</span>
+                  <strong id="modal-duration" class="text-gray-800 dark:text-gray-200 block"></strong>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs">
+                <i class="fas fa-clock text-gray-400 w-4 text-center"></i>
+                <div>
+                  <span class="text-gray-400">Jadwal:</span>
+                  <strong id="modal-schedule" class="text-gray-800 dark:text-gray-200 block"></strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div>
+            <h4 class="font-heading font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+              <i class="fas fa-screwdriver-wrench text-primary-500"></i> Tools & Teknologi
+            </h4>
+            <div id="modal-tools" class="flex flex-wrap gap-2">
+              <!-- Dynamic badges -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Action -->
+    <div class="px-6 py-4 bg-gray-50 dark:bg-dark-bg/40 border-t border-gray-100 dark:border-dark-border flex items-center justify-between">
+      <span class="text-xs text-gray-400">Kuota terbatas untuk setiap batch!</span>
+      <button id="modal-register-btn" class="px-5 py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl text-sm transition flex items-center gap-2">
+        <i class="fas fa-paper-plane text-xs"></i> Daftar Sekarang
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     FAQ SECTION
+══════════════════════════════════════════════ -->
+<section id="faq" class="py-20 bg-gray-50 dark:bg-dark-bg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-5 gap-10 items-start">
+
+      <!-- Left decorative panel -->
+      <div class="lg:col-span-2" data-aos>
+        <div class="section-tag w-fit"><i class="fas fa-circle-question text-xs"></i> FAQ</div>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2 mb-4">
+          Pertanyaan <span class="gradient-text">Umum</span>
+        </h2>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-8">
+          Temukan jawaban atas pertanyaan yang paling sering ditanyakan tentang CORE IT. Jika belum menemukan jawabannya, jangan ragu untuk menghubungi kami.
+        </p>
+
+        <!-- Mini stats -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white dark:bg-dark-surface rounded-xl p-4 border border-gray-100 dark:border-dark-border text-center">
+            <div class="font-heading font-extrabold text-2xl text-primary-500">5+</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Program<br/>Pelatihan</div>
+          </div>
+          <div class="bg-white dark:bg-dark-surface rounded-xl p-4 border border-gray-100 dark:border-dark-border text-center">
+            <div class="font-heading font-extrabold text-2xl text-accent-purple">24/7</div>
+            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Dukungan<br/>Komunitas</div>
+          </div>
+        </div>
+
+        <a href="#contact" class="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition">
+          <i class="fas fa-envelope text-xs"></i> Hubungi Kami
+        </a>
+      </div>
+
+      <!-- Right FAQ accordion -->
+      <div class="lg:col-span-3" data-aos data-aos-delay="100">
+        <div id="faq-list" class="space-y-3">
+          <!-- FAQ items rendered by JS -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     CONTACT SECTION
+══════════════════════════════════════════════ -->
+<section id="contact" class="py-20 bg-white dark:bg-dark-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14" data-aos>
+      <div class="section-tag mx-auto w-fit"><i class="fas fa-envelope text-xs"></i> Hubungi Kami</div>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-gray-900 dark:text-white mt-2">
+        Siap <span class="gradient-text">Bergabung?</span>
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-3 max-w-lg mx-auto">Kirimkan pesan atau daftarkan dirimu sebagai anggota baru CORE IT. Tim kami siap menyambut kamu!</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Form -->
+      <div class="bg-gray-50 dark:bg-dark-bg rounded-2xl p-8 border border-gray-100 dark:border-dark-border" data-aos>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white text-xl mb-6">Kirim Pesan</h3>
+        <form id="contact-form" novalidate>
+          <!-- Nama -->
+          <div class="mb-5">
+            <label for="nama" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+              Nama Lengkap <span class="text-red-500">*</span>
+            </label>
+            <input type="text" id="nama" name="nama" autocomplete="name"
+              class="form-input w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-surface text-gray-900 dark:text-white text-sm transition"
+              placeholder="Masukkan nama lengkap kamu" aria-describedby="nama-error" />
+            <p class="error-msg text-red-500 text-xs mt-1 hidden" id="nama-error"></p>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-5">
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+              Email <span class="text-red-500">*</span>
+            </label>
+            <input type="email" id="email" name="email" autocomplete="email"
+              class="form-input w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-surface text-gray-900 dark:text-white text-sm transition"
+              placeholder="email@contoh.com" aria-describedby="email-error" />
+            <p class="error-msg text-red-500 text-xs mt-1 hidden" id="email-error"></p>
+          </div>
+
+          <!-- Pesan -->
+          <div class="mb-5">
+            <label for="pesan" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
+              Pesan <span class="text-red-500">*</span>
+            </label>
+            <textarea id="pesan" name="pesan" rows="4"
+              class="form-input w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-dark-border bg-white dark:bg-dark-surface text-gray-900 dark:text-white text-sm resize-none transition"
+              placeholder="Tuliskan pesan kamu di sini... (min. 10 karakter)"
+              aria-describedby="pesan-error pesan-counter"></textarea>
+            <div class="flex justify-between">
+              <p class="error-msg text-red-500 text-xs mt-1 hidden" id="pesan-error"></p>
+              <span class="text-xs text-gray-400 mt-1 ml-auto" id="pesan-counter">0 / 500</span>
+            </div>
+          </div>
+
+          <!-- Checkbox -->
+          <div class="mb-6">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input type="checkbox" id="daftar-anggota" class="mt-0.5 w-4 h-4 rounded border-gray-300 text-primary-500 focus:ring-primary-400" />
+              <span class="text-sm text-gray-600 dark:text-gray-400">
+                Saya ingin mendaftarkan diri sebagai anggota baru CORE IT
+              </span>
+            </label>
+          </div>
+
+          <button type="submit" id="submit-btn"
+            class="w-full bg-primary-500 hover:bg-primary-600 disabled:opacity-60 text-white font-semibold py-3 rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fas fa-paper-plane"></i>
+            <span>Kirim Pesan</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Info kontak -->
+      <div data-aos data-aos-delay="100">
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white text-xl mb-6">Informasi Kontak</h3>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-location-dot text-primary-500"></i>
+            </div>
+            <div>
+              <div class="font-medium text-gray-800 dark:text-white text-sm mb-0.5">Lokasi</div>
+              <p class="text-gray-500 dark:text-gray-400 text-sm">Global Institute of Technology & Business<br/>Jl. Aria Santika No.43A, Tangerang</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-envelope text-accent-green"></i>
+            </div>
+            <div>
+              <div class="font-medium text-gray-800 dark:text-white text-sm mb-0.5">Email</div>
+              <a href="mailto:coreit@global.ac.id" class="text-primary-500 hover:underline text-sm">coreit@global.ac.id</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-pink-100 dark:bg-pink-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fab fa-instagram text-pink-500"></i>
+            </div>
+            <div>
+              <div class="font-medium text-gray-800 dark:text-white text-sm mb-0.5">Instagram</div>
+              <a href="https://www.instagram.com/binasaranaglobal?igsh=MXQ5cjRicHo4bjZseA==" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:underline text-sm">@binasaranaglobal</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-clock text-primary-500"></i>
+            </div>
+            <div>
+              <div class="font-medium text-gray-800 dark:text-white text-sm mb-0.5">Jam Operasional</div>
+              <p class="text-gray-500 dark:text-gray-400 text-sm">Senin – Jumat, 09.00 – 17.00 WIB</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="rounded-xl overflow-hidden h-48 bg-primary-50 dark:bg-dark-bg/60 flex items-center justify-center border border-primary-100 dark:border-dark-border">
+          <div class="text-center text-primary-500">
+            <i class="fas fa-map-location-dot text-4xl mb-2"></i>
+            <p class="text-sm font-medium">Global Institute, Tangerang</p>
+            <p class="text-xs text-gray-500 mt-1">Jl. Aria Santika No.43A</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="bg-gray-900 dark:bg-dark-bg text-white pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-12">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="4" fill="#0066ff"/>
+            <ellipse cx="18" cy="18" rx="14" ry="6" stroke="#0066ff" stroke-width="1.5" fill="none" opacity="0.7"/>
+            <ellipse cx="18" cy="18" rx="6" ry="14" stroke="#7c3aed" stroke-width="1.5" fill="none" opacity="0.7"/>
+          </svg>
+          <span class="font-heading font-extrabold text-xl"><span class="text-primary-400">CORE</span> IT</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Community of Research &amp; Engineering in Information Technology. UKM teknologi informasi terdepan di Global Institute.</p>
+        <div class="flex gap-3">
+          <a href="https://www.instagram.com/binasaranaglobal?igsh=MXQ5cjRicHo4bjZseA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-9 h-9 bg-gray-800 hover:bg-primary-500 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+          <a href="https://web.facebook.com/binasaranaglobal/?locale=id_ID&_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-9 h-9 bg-gray-800 hover:bg-primary-500 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/@binasaranaglobal" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="w-9 h-9 bg-gray-800 hover:bg-primary-500 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h4 class="font-heading font-semibold text-white mb-4">Tautan Cepat</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#home" class="text-gray-400 hover:text-primary-400 text-sm transition">Beranda</a></li>
+          <li><a href="#about" class="text-gray-400 hover:text-primary-400 text-sm transition">Tentang Kami</a></li>
+          <li><a href="#services" class="text-gray-400 hover:text-primary-400 text-sm transition">Program</a></li>
+          <li><a href="#gallery" class="text-gray-400 hover:text-primary-400 text-sm transition">Galeri</a></li>
+          <li><a href="#contact" class="text-gray-400 hover:text-primary-400 text-sm transition">Kontak</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-heading font-semibold text-white mb-4">Kontak</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2.5 text-gray-400 text-sm">
+            <i class="fas fa-location-dot text-primary-400 mt-0.5"></i>
+            <span>Jl. Aria Santika No.43A,<br/>Tangerang, Banten</span>
+          </li>
+          <li class="flex items-center gap-2.5 text-gray-400 text-sm">
+            <i class="fas fa-envelope text-primary-400"></i>
+            <a href="mailto:coreit@global.ac.id" class="hover:text-primary-400 transition">coreit@global.ac.id</a>
+          </li>
+          <li class="flex items-center gap-2.5 text-gray-400 text-sm">
+            <i class="fab fa-instagram text-primary-400"></i>
+            <a href="https://www.instagram.com/binasaranaglobal?igsh=MXQ5cjRicHo4bjZseA==" target="_blank" rel="noopener noreferrer" class="hover:text-primary-400 transition">@binasaranaglobal</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 pt-8 text-center">
+      <p class="text-gray-500 text-sm">© 2026 CORE IT – Global Institute of Technology and Business. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Back to top -->
+<button id="back-top" aria-label="Kembali ke atas"
+  class="fixed bottom-6 right-6 z-50 w-11 h-11 bg-primary-500 hover:bg-primary-600 text-white rounded-full shadow-lg flex items-center justify-center transition">
+  <i class="fas fa-chevron-up text-sm"></i>
+</button>
+
+<!-- Toast notification -->
+<div id="toast" role="alert" aria-live="polite"
+  class="bg-white dark:bg-dark-surface border border-green-200 dark:border-green-800 rounded-2xl shadow-2xl px-5 py-4 flex items-center gap-3 max-w-xs">
+  <div class="w-8 h-8 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center flex-shrink-0">
+    <i class="fas fa-check text-green-500 text-sm"></i>
+  </div>
+  <div>
+    <div class="font-semibold text-gray-900 dark:text-white text-sm" id="toast-title">Berhasil!</div>
+    <div class="text-gray-500 dark:text-gray-400 text-xs" id="toast-msg">Pesan kamu telah terkirim.</div>
+  </div>
+  <button onclick="hideToast()" class="ml-auto text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"><i class="fas fa-times text-xs"></i></button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
