@@ -549,16 +549,21 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Mengirim...</span>';
 
     const data = {
-        nama: document.getElementById('nama').value.trim(),
+        access_key: "45e85b60-50cf-4f7a-a72c-fc5ca65cea3d",
+        name: document.getElementById('nama').value.trim(),
         email: document.getElementById('email').value.trim(),
-        pesan: document.getElementById('pesan').value.trim(),
-        daftar_anggota: document.getElementById('daftar-anggota').checked
+        message: document.getElementById('pesan').value.trim(),
+        subject: document.getElementById('daftar-anggota').checked 
+            ? "Pendaftaran Anggota Baru CORE IT - " + document.getElementById('nama').value.trim()
+            : "Pesan Kontak Baru CORE IT - " + document.getElementById('nama').value.trim(),
+        daftar_anggota: document.getElementById('daftar-anggota').checked ? "Ya" : "Tidak"
     };
 
-    fetch('send_email.php', {
+    fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         },
         body: JSON.stringify(data)
     })
@@ -573,16 +578,26 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
         return response.json();
     })
     .then(res => {
-        // Simpan ke local db sebagai backup/riwayat
-        db.create('contacts', { ...data, status: 'unread' });
-        
-        this.reset();
-        document.getElementById('pesan-counter').textContent = '0 / 500';
-        showToast('Pesan Terkirim! 🎉', res.message || 'Terima kasih, kami akan segera menghubungi kamu.', 'success');
+        if (res.success) {
+            // Simpan ke local db sebagai backup/riwayat
+            db.create('contacts', {
+                nama: data.name,
+                email: data.email,
+                pesan: data.message,
+                daftar_anggota: document.getElementById('daftar-anggota').checked,
+                status: 'unread'
+            });
+            
+            this.reset();
+            document.getElementById('pesan-counter').textContent = '0 / 500';
+            showToast('Pesan Terkirim! 🎉', 'Terima kasih, kami akan segera menghubungi kamu.', 'success');
+        } else {
+            throw new Error(res.message || 'Gagal mengirim pesan.');
+        }
     })
     .catch(err => {
         console.error(err);
-        showToast('Gagal Mengirim ❌', err.message || 'Terjadi kesalahan saat menghubungi server. Silakan coba lagi.', 'error');
+        showToast('Gagal Mengirim ❌', err.message || 'Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.', 'error');
     })
     .finally(() => {
         btn.disabled = false;
