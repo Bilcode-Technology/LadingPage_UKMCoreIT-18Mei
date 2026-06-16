@@ -76,8 +76,8 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
 // Check if running on localhost (handles optional port numbers)
-$host = explode(':', $_SERVER['HTTP_HOST'])[0];
-$is_localhost = in_array($host, ['localhost', '127.0.0.1']) || (isset($_SERVER['SERVER_ADDR']) && $_SERVER['SERVER_ADDR'] === '127.0.0.1');
+$host = isset($_SERVER['HTTP_HOST']) ? explode(':', $_SERVER['HTTP_HOST'])[0] : '';
+$is_localhost = in_array($host, ['localhost', '127.0.0.1']) || (isset($_SERVER['SERVER_ADDR']) && $_SERVER['SERVER_ADDR'] === '127.0.0.1') || empty($host);
 
 if ($is_localhost) {
     // Save to a local file for debugging on XAMPP
